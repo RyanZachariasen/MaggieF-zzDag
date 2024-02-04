@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Føzzdag</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      overflow: hidden;
+    }
+
+    #noButton {
+      cursor: pointer;
+      position: absolute;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #yesButton {
+      display: none;
+      cursor: pointer;
+    }
+
+    #resultImage {
+      display: none;
+      max-width: 100%;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Sutta mín murt i 2 tímar?</h1>
+
+<button id="noButton" onclick="moveButton()">Nixen Bixen</button>
+<button id="yesButton" onclick="showYesButton()">Okay</button>
+
+
+<img src="https://media.istockphoto.com/id/865392634/vector/cute-cartoon-dachshunds-in-love.jpg?s=2048x2048&w=is&k=20&c=eIXKlx58_SQG-VqHrP1UH5wFtqm6m1bm-KUFouGAJSI="  alt="Result Image" id="resultImage" width="500" height="500">
+
+<script>
+  let noButtonClicks = 0;
+
+  function moveButton() {
+    noButtonClicks++;
+
+    if (noButtonClicks >= 3) {
+      document.getElementById("noButton").style.display = "none";
+      document.getElementById("yesButton").style.display = "inline-block";
+    } else {
+      const button = document.getElementById("noButton");
+
+
+      const positions = [
+        { x: -500, y: 100 },
+        { x: 300, y: 250 },
+        { x: 500, y: 150 }
+      ];
+
+      const position = positions[noButtonClicks - 1];
+
+      button.style.transform = `translate(${position.x}px, ${position.y}px)`;
+    }
+  }
+
+  function showYesButton() {
+    const yourOwnText = "";
+    const description = "\n" +
+            "Til lukku vid degnum góda.\n" +
+            "\n" +
+            "Vit hava uppliva nógv eftirhondini, og hettar er ein av teimun stóru løturnar fyri meg. At bjóda tínar vinkonur her, so tit kunnu hugna tykkum, virkar til at uppmundra teg. Nú kemur tín familja eisini yvir her, at eta í okkara nýggju íbúd, og tad følir sum at vit eru áveg at gera hettar til okkara nýggja heim.\n" +
+            "Tú fortjenar meira av sovurrnar løtur, og eg hopi at tú fart tad her í íbúdini, og í Keypmannahavn sum heild\n" +
+            "\n" +
+            "Xoxo tin ikki so perversur sjeikur : )\n" +"\n"+"\n" +
+            "\n" +
+            "P.S tú fart ein teldu stativ seinni";
+
+
+    document.getElementById("resultImage").style.display = "block";
+
+
+    alert(`\n\n${description}\n\n${yourOwnText}`);
+  }
+</script>
+
+</body>
+</html>
